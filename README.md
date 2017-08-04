@@ -50,3 +50,10 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - npm dev
 
 ## 搞起~
+
+
+## 最后 npm run build 
+
+## 修改 config => index.js => assetsPublicPath的路径
+
+## 预览地址: [传送门](https://huanghongrui.github.io/VueResume/dist/#/)
