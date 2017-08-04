@@ -52,8 +52,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## 搞起~
 
 
-## 最后 npm run build 
+## 最后
+i. npm run build 
+i. 修改 config => index.js => assetsPublicPath的路径
 
-## 修改 config => index.js => assetsPublicPath的路径
-
-## 预览地址: [传送门](https://huanghongrui.github.io/VueResume/dist/#/)
+### 预览地址: [传送门](https://huanghongrui.github.io/VueResume/dist/#/)
