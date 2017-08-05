@@ -100,7 +100,7 @@
     flex-grow: 1;
     margin-left: 16px;
     border-radius: 16px;
-    background:turquoise; 
+    background:white; 
     box-shadow:0 1px 3px 0 rgba(0,0,0,0.5);
     padding: 2em;
     color: #333; 

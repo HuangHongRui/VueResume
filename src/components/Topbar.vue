@@ -14,8 +14,7 @@
            <a class="button" href="#" @click.prevent="signInDialogVisible= true">登录</a>
          </div>
 
-        <button class="button primary">保存</button>
-        <button class="button">预览</button>
+        <button class="button yulan">预览</button>
 
       </div>
     </div>
@@ -85,7 +84,7 @@ import AV from '../lib/leancloud'
 <style lang="scss">
 
   #topbar{
-    background:pink;
+    background:powderblue;
     box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
 
     >.wrapper{
@@ -113,20 +112,24 @@ import AV from '../lib/leancloud'
       border: none;
       cursor: pointer;
       font-size: 18px; 
-      background:#ddd;
+      background:white;
       color: #222;
       text-decoration: none;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       vertical-align: middle;
+      border-radius: 5px;
       &:hover{
-        box-shadow: 1px 1px 1px hsla(0, 0, 0, 0.50);
+        box-shadow: 0 1px 5px hsla(0, 0, 0, 0.50);
       }
       &.primary{
-        background:#02af5f;
+        background:mediumaquamarine;
         color: white;
       }
+    }
+    .yulan {
+      background: lemonchiffon;
     }
   }
 
