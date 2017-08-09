@@ -1,6 +1,6 @@
-<template>
+  <template>
 
-  <div id="topbar">
+  <div id="topbar" v-if="editorShow">
     <div class="wrapper">
       <span class="logo">Resumer</span>
 
@@ -14,16 +14,16 @@
            <a class="button" href="#" @click.prevent="signInDialogVisible= true">登录</a>
          </div>
 
-        <button class="button yulan">预览</button>
+        <button class="button yulan" @click="preview">预览</button>
 
       </div>
     </div>
 
-    <MyDialog title="注册" :visible="signUpDialogVisible" 
+    <MyDialog class="modal" title="注册" :visible="signUpDialogVisible" 
       @close="signUpDialogVisible = false">
       <SignUpForm @success="signIn($event)"/>
     </MyDialog>
-    <MyDialog title="登录" :visible="signInDialogVisible"
+    <MyDialog class="modal" title="登录" :visible="signInDialogVisible"
       @close="signInDialogVisible = false">
       <SignInForm @success="signIn($event)"/>
     </MyDialog>
@@ -56,7 +56,10 @@ import AV from '../lib/leancloud'
      },
      logined() {
       return this.user.id
-     }
+     },
+     editorShow(){
+          return this.$store.state.editorShow
+        }
    },
     components: {
        MyDialog, 
@@ -72,7 +75,10 @@ import AV from '../lib/leancloud'
        this.signUpDialogVisible = false
        this.signInDialogVisible = false
        this.$store.commit('setUser', user)
-     }
+     },
+     preview(){
+        this.$store.commit('PreviewResumerHide')
+      }
     }
   }
 </script>
@@ -92,9 +98,6 @@ import AV from '../lib/leancloud'
       max-width: 1440px;
       margin: 0 auto;
       height:64px;
-    }
-
-    >.wrapper{
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -131,9 +134,7 @@ import AV from '../lib/leancloud'
     .yulan {
       background: lemonchiffon;
     }
-  }
-
-  .actions{
+     .actions{
      display: flex;
      .userActions{
        margin-right: 3em;
@@ -142,4 +143,49 @@ import AV from '../lib/leancloud'
        }
      }
    }
+   .dialog {
+    border-radius: 10px;
+        header{
+          background:powderblue;
+          border-radius: 10px 10px 0 0;
+        }
+        main {
+          border-top: solid #ddd;
+          .row {
+            padding: 10px;
+          }
+          label {
+            display: inline-block;
+            width: 60px;
+            font-weight: 700;
+          }
+          input[type] {
+            border-radius: 5px;
+          }
+        .actions {
+            margin-top: 5px;
+          text-align: center;
+          input[type=submit]{
+            display: block;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            color:#000;
+            background:mediumaquamarine;
+            margin: auto;
+            &:hover {
+              box-shadow: 0 1px 5px hsla(0, 0, 0, 0.50);
+            }
+          }
+          .errorMessage,
+           span{
+            text-shadow: 0 1px 5px hsla(255, 0, 0, 0.5);
+            padding:5px 10px 0 0 ;
+          }
+        }
+      }
+   }
+  }
+
+ 
 </style>

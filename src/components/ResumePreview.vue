@@ -2,7 +2,7 @@
 
   <div id="resumePreview">
 
-
+    <button v-if="!editorShow" @click="exitShow" class="info">退出预览</button>
 
     <section data-name="profile" v-show="resume.profile">
       <h1>
@@ -82,6 +82,15 @@
     computed: {
       resume() {
         return this.$store.state.resume
+      },
+      editorShow(){
+          return this.$store.state.editorShow
+        }
+    },
+    methods: {
+      exitShow() {
+        console.log(1)
+        this.$store.commit('PreviewResumerShow')
       }
     }
   }
@@ -110,6 +119,31 @@
                 box-sizing: border-box; 
                 font-variant: normal; 
                 font-weight: normal;
+              }
+              button.info {
+                background:powderblue;
+                width:72px;
+                height:32px;
+                border: none;
+                cursor: pointer;
+                font-size: 18px; 
+                color: #222;
+                text-decoration: none;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                vertical-align: middle;
+                border-radius: 5px;
+                position: fixed;
+                right: 32px;
+                top: 17px;
+                &:hover{
+                  box-shadow: 0 1px 5px hsla(0, 0, 0, 0.50);
+                }
+                &.primary{
+                  background:mediumaquamarine;
+                  color: white;
+                }
               }
               ol{ list-style: none; }
               section + section{ margin-top: 2em; }

@@ -1,6 +1,6 @@
 <template>
 
-  <div id="resumeEditor">
+  <div v-if="editorShow" id="resumeEditor">
     <nav>
       <ol>
         <li v-for="(item,index) in resume.config" :class="{active: item.field === selected}" @click="selected = item.field">
@@ -54,7 +54,10 @@
       },
       resume () {
         return this.$store.state.resume
-      }
+      },
+      editorShow(){
+          return this.$store.state.editorShow
+        }
     },
     methods: {
       changeResumeField(path, value){

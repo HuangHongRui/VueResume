@@ -2,8 +2,8 @@
   <div class="dialogWrapper" v-show="visible">
 
     <div class="dialog">
-      <header>{{title}}
-        <span class="close" @click="close">X</span>
+      <header><span class="info">{{title}}</span>
+        <span class="close" @click="close">关闭</span>
       </header>
       <main>
         <slot></slot>
@@ -42,13 +42,27 @@
     background: white;
     min-height: 4em;
     min-width: 10em;
+    border-radius: 5px;
     > header{
       padding: 16px;
       display: flex;
       justify-content: space-between;
+      .info {
+      line-height: 30px;
+      vertical-align: center;
+      }
     }
     > main{
       padding: 16px;
     }
+    
+    .close {
+        cursor: pointer;
+        line-height: 25px;
+        opacity: 0.7;
+        &:hover {
+          text-shadow: 0 1px 5px hsla(255, 0, 0, 0.50);
+        }
+      }
   }
 </style>

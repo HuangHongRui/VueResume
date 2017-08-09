@@ -10,6 +10,7 @@ export default new Vuex.Store({
       id: '',
       username: ''
     },
+    editorShow: true,
     resume: {
       config: [
         { field: 'profile', icon: 'id' },
@@ -20,24 +21,24 @@ export default new Vuex.Store({
         { field: 'contacts', icon: 'phone' },
       ],
       profile: {
-        name: '锐锐',
-        city: '大城市深圳',
-        title: '全栈工程师',
+        name: '某某',
+        city: '深圳',
+        title: '前端工程师',
         birthday: '1993-01-01'
       },
       workHistory: [
-        { company: '世界公司', content: `公司总部设在XXXX区，先后在北京、上海成立分公司。专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
+        { company: '某某公司', content: `公司总部设在XXXX区，先后在北京、上海成立分公司。专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
  +我的主要工作如下:
  +1. 完成既定产品需求。
  +2. 修复 bug。` },
-        { company: '宇宙公司', content: `公司总部设在XXXX区，先后在北京、上海成立分公司。专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
+        { company: '某某公司', content: `公司总部设在XXXX区，先后在北京、上海成立分公司。专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
  +我的主要工作如下:
  +1. 完成既定产品需求。
  +2. 修复 bug。` }
       ],
       education: [
-        { school: '世界大学', content: '本科' },
-        { school: '宇宙大学', content: '本科' },
+        { school: '某某大学', content: '本科' },
+        { school: '某某大学', content: '本科' },
       ],
       projects: [
         { name: '项目 A', content: '巴拉巴拉' },
@@ -71,6 +72,12 @@ export default new Vuex.Store({
     },
     removeUser(state) {
       state.user.id = ''
+    },
+     PreviewResumerHide(state,payload){
+      state.editorShow = false
+    },
+    PreviewResumerShow(state,payload){
+      state.editorShow = true
     }
   }
 })
